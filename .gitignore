@@ -25,7 +25,6 @@ gen/
 build.xml
 ant.properties
 local.properties
-project.properties
 
 # Eclipse project files
 .classpath

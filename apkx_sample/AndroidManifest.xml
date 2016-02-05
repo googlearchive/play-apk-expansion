@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.google.play.apkx"
+    android:versionCode="9"
+    android:versionName="1.5" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-sdk
+        android:targetSdkVersion="23" android:minSdkVersion="7"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Base.Theme.AppCompat">
+        <activity
+            android:label="@string/app_name"
+            android:name=".SampleDownloaderActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name="apkx.downloader.sample.SampleVideoPlayerActivity"
+            android:theme="@style/VideoFullScreen"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboard|keyboardHidden" >
+        </activity>
+
+        <!--
+         In order to start the service, it must be uniquely registered with
+         the package manager here.
+        -->
+        <service android:name=".SampleDownloaderService" />
+
+        <!--
+         In order for the alarm manager to contact the downloader script, the receiver
+         must be uniquely registered with the package manager here.
+        -->
+        <receiver android:name=".SampleAlarmReceiver" />
+
+		<!--
+        Providers must have a unique authority per application.
+        Change the android:authorities line to something unique to your
+        application (such as its package name) if you wish to use the
+        provider.
+
+        The format will be content://com.example.google.play.apkx/[zipfilepath].
+        -->
+        <provider
+            android:authorities="com.example.google.play.apkx"
+            android:exported="false"
+            android:multiprocess="true"
+            android:name=".SampleZipFileProvider">
+            <meta-data android:name="mainVersion" android:value="3"/>
+        </provider>
+
+
+    </application>
+
+</manifest>

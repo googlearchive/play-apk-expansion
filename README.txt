@@ -2,6 +2,12 @@ Client library for the Google Market APK Expansion files.
 
 Changelog
 ---------
+Version 4
+* Updated for Marshmallow
+   - No longer uses Apache HTTP
+   - No longer relies on removed Notification methods
+* Changed to refer to Google Play
+* Notifications now rely on support library.
 
 Version 3
 * Directory structure corrected in distribution. No code changes.
