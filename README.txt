@@ -7,7 +7,7 @@ Version 4
    - No longer uses Apache HTTP
    - No longer relies on removed Notification methods
 * Changed to refer to Google Play
-* Notifications now rely on support library.
+* Notifications now rely on support-v7 22.+ and support-v4 22.0.+.
 
 Version 3
 * Directory structure corrected in distribution. No code changes.
