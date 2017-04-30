@@ -342,7 +342,8 @@ public class ZipResourceFile {
          * archive. After that, we can release our EOCD hunt buffer.
          */
 
-        int numEntries = bbuf.getShort(eocdIdx + kEOCDNumEntries);
+        // "numEntries" is a 16-bit _unsigned_ value so make it a "char"
+        char numEntries = (char) bbuf.getShort(eocdIdx + kEOCDNumEntries);
         long dirSize = bbuf.getInt(eocdIdx + kEOCDSize) & 0xffffffffL;
         long dirOffset = bbuf.getInt(eocdIdx + kEOCDFileOffset) & 0xffffffffL;
 
