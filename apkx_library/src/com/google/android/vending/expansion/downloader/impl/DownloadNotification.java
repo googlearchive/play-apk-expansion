@@ -204,11 +204,7 @@ public class DownloadNotification implements IDownloaderClient {
         mLabel = applicationLabel;
         mNotificationManager = (NotificationManager)
                 mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            mActiveDownloadBuilder = new V4CustomNotificationBuilder(ctx);
-        } else {
-            mActiveDownloadBuilder = new NotificationCompat.Builder(ctx);
-        }
+        mActiveDownloadBuilder = new NotificationCompat.Builder(ctx);
         mBuilder = new NotificationCompat.Builder(ctx);
 
         // Set Notification category and priorities to something that makes sense for a long
