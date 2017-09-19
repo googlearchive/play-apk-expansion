@@ -2,6 +2,9 @@ Client library for the Google Market APK Expansion files.
 
 Changelog
 ---------
+Version 5
+* Removed pre-V14 compatibility (preparing for more changes)
+
 Version 4
 * Updated for Marshmallow
    - No longer uses Apache HTTP
