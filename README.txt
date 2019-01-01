@@ -31,7 +31,7 @@ Packages
 downloader_library
 A library that works with the google_market_licensing library to download APK Expansion files in a background service.  This library depends on the licensing library, and must be built as a library project.
 zip_file
-A library that uses multiple zip files as a virtual read-only filesystem with hooks to support APK Expansion lies. This also must be built as an Android library project.
+A library that uses multiple zip files as a virtual read-only filesystem with hooks to support APK Expansion files. This also must be built as an Android library project. 
 downloader_sample
 A sample application that assumes that zip format files have been uploaded as the main/patch file(s) on Android Market.  It downloads these files and then validates that the CRC's for every entry in the zip match.  This application depends on the downloader_library and the zip_file library. Because of dependency issues involving multiple libraries, you may have to do a clean build after creating each project.
 
@@ -42,6 +42,7 @@ IMPORTANT THINGS TO KNOW
 2) See com.google.android.vending.expansion.downloader/Constants.java to turn on verbose logging in the library.  Please turn it off when you publish
 3) You must add your SALT and Public key to the SampleDownloaderService and update the xAPKS structure in SampleDownloaderActivity in order to test with the sample code
 4) There is no strong need to include the validator with your Android applications.  It is included as a demonstration, and can be used if you wish.
+5) When using the APEZProvider for retrieving Zip files via "content://" URIs, you may wish to leave them uncompressed. Otherwise the content provider may return null due to failing to grab ahold of a file descriptor.
 
 For more information, see the documentation at http://developer.android.com/guide/market/expansion-files.html
 
