@@ -1,3 +1,16 @@
+NOTE
+====
+
+Support for this library as been discontinued after the launch of Play Asset Delivery (https://developer.android.com/guide/app-bundle/asset-delivery).
+Play Asset Delivery is a better solution that requires much less developer effort and is compliant with all SDK versions.
+
+As announced in August 2020, new apps and games will be required to be published on Google Play using the Android App Bundle format in the second half of 2021:
+https://android-developers.googleblog.com/2020/08/recent-android-app-bundle-improvements.html
+
+Play Asset Delivery is an integral part in this roadmap and it should be preferred over APK Expansion files for new projects.
+
+====
+
 Client library for the Google Market APK Expansion files.
 
 Changelog
